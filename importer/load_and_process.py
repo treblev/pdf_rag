@@ -34,6 +34,7 @@ chunks = text_splitter.split_documents(docs)
 PGVector.from_documents(chunks
                         , embedding=embeddings
                         , collection_name= "pdf_rag"
-                        , connection_string = "postgresql://postgres.svvssjtshgpsrnudvsou:[]@aws-0-us-west-1.pooler.supabase.com:5432/postgres" #"postgresql+psycopg://vvvijaya@127.0.0.1:5432/pdf_rag_vectors?password=vvvijaya"
+                        , connection_string = os.getenv('SUPABASE_CONNECTION_STRING')
                         , pre_delete_collection= True
                         )
+
